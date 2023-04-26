@@ -5,17 +5,17 @@ with open("README.md") as f:
     long_description = f.read()
 
 INSTALL_REQUIRES = [
-    "fastapi==0.70.0",
-    "loguru==0.5.3",
-    "numpy==1.21.3",
-    "optuna==2.10.0",
-    "pyarrow==6.0.0",
-    "pydantic==1.8.2",
-    "joblib==1.1.0",
-    "pandas==1.3.4",
-    "scikit-learn==1.0.1",
-    "uvicorn==0.15.0",
-    "xgboost==1.5.0",
+    "fastapi",
+    "loguru",
+    "numpy",
+    "optuna",
+    "pyarrow",
+    "pydantic",
+    "joblib",
+    "pandas",
+    "scikit-learn",
+    "uvicorn",
+    "xgboost",
 ]
 
 if __name__ == "__main__":
