@@ -211,8 +211,19 @@ def train_model(model_config):
         load_if_exists=True,
     )
     study.optimize(optimize_func, n_trials=model_config.num_trials, timeout=model_config.time_limit)
+
+    # Save the dictionary to a file
+    with open(os.path.join(model_config.output, "best_params.json"), 'w') as file:
+        json.dump(study.best_params, file)
+
     return study.best_params
 
+def load_model(best_params_file):
+    # Read the dictionary back from the file
+    with open(best_params_file, 'r') as file:
+        best_params = json.load(file)
+    
+    return best_params
 
 def predict_model(model_config, best_params):
 

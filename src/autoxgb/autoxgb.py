@@ -12,7 +12,7 @@ from sklearn.utils.multiclass import type_of_target
 from .enums import ProblemType
 from .logger import logger
 from .schemas import ModelConfig
-from .utils import predict_model, reduce_memory_usage, train_model
+from .utils import predict_model, reduce_memory_usage, train_model, load_model
 
 
 @dataclass
@@ -246,6 +246,12 @@ class AutoXGB:
         self._process_data()
         best_params = train_model(self.model_config)
         logger.info("Training complete")
+        self.predict(best_params)
+    
+    def load(self, best_params_file):
+        self._process_data()
+        best_params = load_model(best_params_file)
+        logger.info("Loading complete")
         self.predict(best_params)
 
     def predict(self, best_params):
